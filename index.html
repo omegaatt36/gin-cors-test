@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Debugging</title>
+</head>
+<body>
+    <h1>CORS Debugging</h1>
+    <button id="publicPostButton">POST /public/user</button>
+    <button id="postButton">POST /user</button>
+    <br/>
+    <button id="publicPostXXXButton">POST /public/xxx</button>
+    <button id="postXXXButton">POST /xxx</button>
+
+    <script>
+        let baseURL = "http://192.168.189.130:8080"
+
+        document.getElementById("publicPostButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", baseURL + "/public/user", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            // xhr.setRequestHeader("Authorization", "Bearer XXX");
+            xhr.send(JSON.stringify({ key: "value" }));
+        });
+
+        document.getElementById("postButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", baseURL + "/user", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ key: "value" }));
+        });
+
+        document.getElementById("publicPostXXXButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", baseURL + "/public/xxx", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ key: "value" }));
+        });
+
+        document.getElementById("postXXXButton").addEventListener("click", function() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", baseURL + "/xxx", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify({ key: "value" }));
+        });
+    </script>
+</body>
+</html>
