@@ -20,6 +20,8 @@ func main() {
 }
 
 func registerEndpoint(r *gin.Engine) {
+	// XXX try to change the order of these two lines,
+	// and see how many handles are registered to the public endpoints.
 	registerPublic(r)
 	registerPrivate(r)
 }
